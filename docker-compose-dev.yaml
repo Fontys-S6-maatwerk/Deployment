@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  authentication-db:
+    restart: "no"
+
+  authentication-service:
+    image: authentication-service
+    restart: "no"
+    build:
+      context: ./AuthenticationService
+      target: dev
+    volumes:
+      - "./AuthenticationService/AuthenticationService.Web/Services:/AuthenticationService.Web/Services"
+
+volumes:
+  authentication-db-data:
