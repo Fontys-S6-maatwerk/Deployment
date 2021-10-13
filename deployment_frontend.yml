@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: ghcr.io/fontys-s6-maatwerk/ggcwebsite:latest
+      image: ghcr.io/fontys-s6-maatwerk/ggcwebsite:main
       ports:
         - name: http
           containerPort: 80
