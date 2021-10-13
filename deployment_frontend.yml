@@ -6,7 +6,6 @@ spec:
   containers:
     - name: nginx
       image: ghcr.io/fontys-s6-maatwerk/ggcwebsite:main
-      image-pull-policy: Always
       ports:
         - name: http
           containerPort: 80
