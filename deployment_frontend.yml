@@ -1,12 +1,22 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: my-pod-frontend-ggc
+  name: ggc-fe-deployment
+  labels:
+    app: ggc-fe
 spec:
-  containers:
-    - name: nginx
-      image: ghcr.io/fontys-s6-maatwerk/ggcwebsite:main
-      ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ggc-fe
+  template:
+    metadata:
+      labels:
+        app: ggc-fe
+    spec:
+      containers:
+      - name: ggc-fe
+        image: ghcr.io/fontys-s6-maatwerk/ggcwebsite:main
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
