@@ -1,4 +1,6 @@
 code of the deployment of the frontend
+Assumptions: Private server with linux server 20.04
+             K3D cluster installed with https://k3d.io/v5.0.3/ 
 
 UP
 sudo kubectl apply \
