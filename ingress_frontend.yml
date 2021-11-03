@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: ggc-service
+            name: ggc-fe-service
             port:
               number: 80
