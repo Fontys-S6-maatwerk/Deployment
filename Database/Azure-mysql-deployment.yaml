@@ -41,7 +41,7 @@ metadata:
   name: mysql-deployment
 spec:
   selector:
-    app: mssql
+    app: msyql
   ports:
     - protocol: TCP
       port: 3306
