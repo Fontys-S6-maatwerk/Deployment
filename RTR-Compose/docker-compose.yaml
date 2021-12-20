@@ -83,9 +83,47 @@ services:
      - ggc-network
     restart: unless-stopped
 
+  # db:
+  #   platform: linux/x86_64
+  #   image: mysql
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: fontys
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - ggc-network
+  # api:
+  #   depends_on: ["db"]
+  #   image: ghcr.io/fontys-s6-maatwerk/userservice:main
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - DB_HOST=db
+  #     - DB_USERNAME=root
+  #     - DB_PASSWORD=root
+  #     - DB_NAME=fontys
+  #   networks:
+  #     - ggc-network
+
+  # rabbitmq:
+  #   image: rabbitmq:3-management-alpine
+  #   container_name: 'messaging'
+  #   ports:
+  #     - 5672:5672
+  #     - 15672:15672
+  #   networks:
+  #     - ggc-networks
+
+
 volumes:
   RTR-db:
   sol_volume:
+  db-data:
 
 networks:
   ggc-network:
