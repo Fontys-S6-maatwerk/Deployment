@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  RTRdb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: p4ssword
+      MYSQL_DATABASE: Comments
+      MYSQL_USER: user
+    ports:
+      - "3322:3306"
+    volumes:
+      - RTR-db:/var/lib/mysql
+    networks: 
+      - ggc-network
+  rtr-app:
+    depends_on:
+      - "RTRdb"
+    image: ghcr.io/fontys-s6-maatwerk/rtrapp:develop
+    restart: always
+    ports:
+      - "9090:80"
+    networks: 
+      - ggc-network
+  rtr-gateway:
+    depends_on:
+      - "RTRdb"
+    image: ghcr.io/fontys-s6-maatwerk/rtrgateway:main
+    restart: always
+    ports:
+      - "9091:80"
+    networks: 
+      - ggc-network
+volumes:
+  RTR-db:
+
+networks:
+  ggc-network:
+    external: true
