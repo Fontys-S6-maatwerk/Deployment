@@ -1,9 +1,6 @@
 [submodule "GgcWebsite"]
 	path = GgcWebsite
 	url = https://github.com/Fontys-S6-maatwerk/GgcWebsite.git
-[submodule "AuthenticationService"]
-	path = AuthenticationService
-	url = https://github.com/Fontys-S6-maatwerk/AuthenticationService.git
 [submodule "RTRGateway"]
 	path = RTRGateway
 	url = https://github.com/Fontys-S6-maatwerk/RTRGateway.git
